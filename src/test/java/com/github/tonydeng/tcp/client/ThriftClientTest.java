@@ -34,21 +34,21 @@ public class ThriftClientTest {
             ThriftServerInfo.of("localhost", 9001)
     );
 
-    @Test
+    //    @Test
     public void testTransport() throws TException {
         Function<TTransport, TProtocol> protocolProvider = transport -> {
-            TCompactProtocol  compactProtocol = new TCompactProtocol(transport);
+            TCompactProtocol compactProtocol = new TCompactProtocol(transport);
             TMultiplexedProtocol protocol = new TMultiplexedProtocol(compactProtocol, "pingPongService");
             return protocol;
         };
 
         ThriftClient client = new ThriftClientImpl(serverList);
         Ping ping = new Ping("hi!");
-        Pong pong =  client.iface(PingPongService.Client.class,protocolProvider,0).knock(ping);
+        Pong pong = client.iface(PingPongService.Client.class, protocolProvider, 0).knock(ping);
         log.info("ping message:'{}'  pong answer:'{}'", ping.getMessage(), pong.getAnswer());
     }
 
-    //    @Test
+    @Test
     public void testClientPoolPing() throws InterruptedException {
 
         ThriftClient client = new ThriftClientImpl(serverList);
