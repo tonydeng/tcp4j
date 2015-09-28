@@ -62,10 +62,18 @@ public class ThriftClientImpl implements ThriftClient {
     public <X extends TServiceClient> X iface(Class<X> ifaceClass, int hash) {
         return iface(ifaceClass, TCompactProtocol::new, hash);
     }
-//
+
 //    @Override
-//    public <X extends TServiceClient> X iface(Class<X> ifaceClass, String serviceName){
+//    public <X extends TServiceClient> X iface(Class<X> ifaceClass, TTransport transport, String serviceName){
 //       TMultiplexedProtocol protocol =  new TMultiplexedProtocol(new TCompactProtocol(), "serviceName");
+//        Function<TTransport, TProtocol> protocolProvider = new Function<TTransport, TProtocol>() {
+//            @Override
+//            public TProtocol apply(TTransport transport) {
+//                return null;
+//            }
+//        }
+//        return iface(ifaceClass,TMultiplexedProtocol::new,ThriftClientUtils.randomNextInt());
+//        return null;
 //    }
 
     @Override

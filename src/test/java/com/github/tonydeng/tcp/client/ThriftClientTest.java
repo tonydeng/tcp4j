@@ -5,6 +5,7 @@ import com.github.tonydeng.tcp.impl.ThriftClientImpl;
 import com.github.tonydeng.tcp.pool.ThriftServerInfo;
 import com.github.tonydeng.tcp.service.*;
 import org.apache.thrift.TException;
+import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TCompactProtocol;
 import org.apache.thrift.protocol.TMultiplexedProtocol;
 import org.apache.thrift.protocol.TProtocol;
@@ -48,7 +49,15 @@ public class ThriftClientTest {
         log.info("ping message:'{}'  pong answer:'{}'", ping.getMessage(), pong.getAnswer());
     }
 
-    @Test
+//    @Test
+    public void testPingPong() throws TException {
+        ThriftClient client = new ThriftClientImpl(serverList);
+        Ping ping = new Ping("hi!");
+        Pong pong = client.iface(PingPongService.Client.class, TBinaryProtocol::new,0).knock(ping);
+        log.info("ping message:'{}'  pong answer:'{}'", ping.getMessage(), pong.getAnswer());
+    }
+
+//    @Test
     public void testClientPoolPing() throws InterruptedException {
 
         ThriftClient client = new ThriftClientImpl(serverList);
@@ -111,5 +120,32 @@ public class ThriftClientTest {
         client.sendMails(recipients, "subject", "content");
 
         transport.close();
+    }
+    @Test
+    public void testEcho() throws InterruptedException {
+        Supplier<List<ThriftServerInfo>> serverListProvider = () -> Arrays.asList( //
+//                ThriftServerInfo.of("127.0.0.1", 9092), //
+//                ThriftServerInfo.of("127.0.0.1", 9091), //
+                ThriftServerInfo.of("127.0.0.1", 9001));
+
+        // init pool client
+        ThriftClientImpl client = new ThriftClientImpl(serverListProvider);
+
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+        for (int i = 0; i < 100; i++) {
+            int counter = i;
+            executorService.submit(() -> {
+                try {
+                    String result = client.iface(TestThriftService.Client.class).echo("hi " + counter + "!");
+                    log.info("get result: {}", result);
+                } catch (Throwable e) {
+                    log.error("get client fail", e);
+                }
+            });
+        }
+
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.MINUTES);
     }
 }
