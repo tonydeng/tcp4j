@@ -48,6 +48,9 @@ public class DefaultThriftConnectionPoolImpl implements ThriftConnectionPoolProv
             tSocket.setTimeout(TIMEOUT);
             TFramedTransport transport = new TFramedTransport(tSocket);
             return transport;
+//            TSocket socket = new TSocket(info.getHost(),info.getPort());
+//            socket.setTimeout(TIMEOUT);
+//            return socket;
         });
     }
 

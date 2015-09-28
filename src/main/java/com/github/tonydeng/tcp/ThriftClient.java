@@ -27,6 +27,8 @@ public interface ThriftClient {
      */
     public <X extends TServiceClient> X iface(Class<X> ifaceClass, int hash);
 
+//    public <X extends TServiceClient> X iface(Class<X> ifaceClass, String serviceName);
+
     /**
      *
      * @param ifaceClass

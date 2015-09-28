@@ -5,6 +5,7 @@ import com.github.tonydeng.tcp.service.PingPongService;
 import com.github.tonydeng.tcp.service.Pong;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.thrift.TException;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,12 @@ import org.springframework.stereotype.Service;
  */
 @Service("pingPongService")
 public class PingPongServiceHandler implements PingPongService.Iface {
+
+    private static  final Logger log = LoggerFactory.getLogger(PingPongServiceHandler.class);
+
     @Override
     public Pong knock(Ping ping) throws TException {
+        log.info("ping pong knock.......");
 
         String message  = ping.getMessage();
         String answer = StringUtils.reverse(message);
@@ -23,7 +28,7 @@ public class PingPongServiceHandler implements PingPongService.Iface {
 
         pong.setAnswer(answer);
 
-        LoggerFactory.getLogger(PingPongServiceHandler.class).info("Got message {} and sent answer {}",message,answer);
+        log.info("Got message {} and sent answer {}",message,answer);
 
         return pong;
     }

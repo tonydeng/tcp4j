@@ -10,6 +10,7 @@ import javassist.util.proxy.Proxy;
 import javassist.util.proxy.ProxyFactory;
 import org.apache.thrift.TServiceClient;
 import org.apache.thrift.protocol.TCompactProtocol;
+import org.apache.thrift.protocol.TMultiplexedProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TTransport;
 import org.slf4j.Logger;
@@ -61,6 +62,11 @@ public class ThriftClientImpl implements ThriftClient {
     public <X extends TServiceClient> X iface(Class<X> ifaceClass, int hash) {
         return iface(ifaceClass, TCompactProtocol::new, hash);
     }
+//
+//    @Override
+//    public <X extends TServiceClient> X iface(Class<X> ifaceClass, String serviceName){
+//       TMultiplexedProtocol protocol =  new TMultiplexedProtocol(new TCompactProtocol(), "serviceName");
+//    }
 
     @Override
     public <X extends TServiceClient> X iface(Class<X> ifaceClass, Function<TTransport, TProtocol> protocolProvider, int hash) {
@@ -91,7 +97,7 @@ public class ThriftClientImpl implements ThriftClient {
 
 
         try {
-            X x = (X) factory.create(new Class[] { org.apache.thrift.protocol.TProtocol.class },
+            X x = (X) factory.create(new Class[] { TProtocol.class },
                     new Object[] { protocol });
             ((Proxy) x).setHandler((self, thisMethod, proceed, args) -> {
                 boolean success = false;

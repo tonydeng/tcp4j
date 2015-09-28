@@ -28,7 +28,7 @@ public class ThriftTestServer {
 
     @Test
     public void start(){
-        log.info("start thrift server.......");
+        log.info("start thrift test server.......");
         try {
 
             TMultiplexedProcessor processor =  new TMultiplexedProcessor();
