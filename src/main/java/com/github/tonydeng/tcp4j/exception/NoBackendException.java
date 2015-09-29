@@ -1,4 +1,4 @@
-package com.github.tonydeng.tcp.exception;
+package com.github.tonydeng.tcp4j.exception;
 
 /**
  * Created by tonydeng on 15/9/28.

@@ -1,8 +1,8 @@
-package com.github.tonydeng.tcp.pool.impl;
+package com.github.tonydeng.tcp4j.pool.impl;
 
-import com.github.tonydeng.tcp.factory.ThriftConnectionFactory;
-import com.github.tonydeng.tcp.pool.ThriftConnectionPoolProvider;
-import com.github.tonydeng.tcp.pool.ThriftServerInfo;
+import com.github.tonydeng.tcp4j.factory.ThriftConnectionFactory;
+import com.github.tonydeng.tcp4j.pool.ThriftConnectionPoolProvider;
+import com.github.tonydeng.tcp4j.pool.ThriftServerInfo;
 import org.apache.commons.pool2.impl.GenericKeyedObjectPool;
 import org.apache.commons.pool2.impl.GenericKeyedObjectPoolConfig;
 import org.apache.thrift.transport.TFramedTransport;

@@ -1,7 +1,7 @@
-package com.github.tonydeng.tcp.server;
+package com.github.tonydeng.tcp4j.server;
 
-import com.github.tonydeng.tcp.service.PingPongService;
-import com.github.tonydeng.tcp.service.TestThriftService;
+import com.github.tonydeng.tcp4j.service.PingPongService;
+import com.github.tonydeng.tcp4j.service.TestThriftService;
 import org.apache.thrift.TException;
 import org.apache.thrift.TMultiplexedProcessor;
 import org.apache.thrift.protocol.TCompactProtocol;
@@ -26,7 +26,7 @@ import javax.annotation.Resource;
  */
 @Ignore
 @Configuration
-@ComponentScan(basePackages = "com.github.tonydeng.tcp.server")
+@ComponentScan(basePackages = "com.github.tonydeng.tcp4j.server")
 public class ThriftTestServer {
     private static final Logger log = LoggerFactory.getLogger(ThriftTestServer.class);
     private static final int port=9001;

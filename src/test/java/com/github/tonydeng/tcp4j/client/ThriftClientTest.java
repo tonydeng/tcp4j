@@ -1,9 +1,9 @@
-package com.github.tonydeng.tcp.client;
+package com.github.tonydeng.tcp4j.client;
 
-import com.github.tonydeng.tcp.ThriftClient;
-import com.github.tonydeng.tcp.impl.ThriftClientImpl;
-import com.github.tonydeng.tcp.pool.ThriftServerInfo;
-import com.github.tonydeng.tcp.service.*;
+import com.github.tonydeng.tcp4j.ThriftClient;
+import com.github.tonydeng.tcp4j.impl.ThriftClientImpl;
+import com.github.tonydeng.tcp4j.pool.ThriftServerInfo;
+import com.github.tonydeng.tcp4j.service.*;
 import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
@@ -12,7 +12,6 @@ import org.apache.thrift.protocol.TMultiplexedProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
-import org.apache.thrift.transport.TTransportException;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

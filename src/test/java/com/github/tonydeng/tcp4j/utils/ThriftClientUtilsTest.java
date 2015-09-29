@@ -1,4 +1,4 @@
-package com.github.tonydeng.tcp.utils;
+package com.github.tonydeng.tcp4j.utils;
 
 import org.junit.Ignore;
 import org.junit.Test;

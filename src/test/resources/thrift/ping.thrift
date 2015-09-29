@@ -1,4 +1,4 @@
-namespace java com.github.tonydeng.tcp.service
+namespace java com.github.tonydeng.tcp4j.service
 
 struct Ping {
     1: string message;

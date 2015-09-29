@@ -1,16 +1,15 @@
-package com.github.tonydeng.tcp.impl;
+package com.github.tonydeng.tcp4j.impl;
 
-import com.github.tonydeng.tcp.ThriftClient;
-import com.github.tonydeng.tcp.exception.NoBackendException;
-import com.github.tonydeng.tcp.pool.ThriftConnectionPoolProvider;
-import com.github.tonydeng.tcp.pool.ThriftServerInfo;
-import com.github.tonydeng.tcp.pool.impl.DefaultThriftConnectionPoolImpl;
-import com.github.tonydeng.tcp.utils.ThriftClientUtils;
+import com.github.tonydeng.tcp4j.ThriftClient;
+import com.github.tonydeng.tcp4j.exception.NoBackendException;
+import com.github.tonydeng.tcp4j.pool.ThriftConnectionPoolProvider;
+import com.github.tonydeng.tcp4j.pool.ThriftServerInfo;
+import com.github.tonydeng.tcp4j.pool.impl.DefaultThriftConnectionPoolImpl;
+import com.github.tonydeng.tcp4j.utils.ThriftClientUtils;
 import javassist.util.proxy.Proxy;
 import javassist.util.proxy.ProxyFactory;
 import org.apache.thrift.TServiceClient;
 import org.apache.thrift.protocol.TCompactProtocol;
-import org.apache.thrift.protocol.TMultiplexedProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TTransport;
 import org.slf4j.Logger;

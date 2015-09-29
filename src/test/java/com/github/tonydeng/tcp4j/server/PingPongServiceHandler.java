@@ -1,8 +1,8 @@
-package com.github.tonydeng.tcp.server;
+package com.github.tonydeng.tcp4j.server;
 
-import com.github.tonydeng.tcp.service.Ping;
-import com.github.tonydeng.tcp.service.PingPongService;
-import com.github.tonydeng.tcp.service.Pong;
+import com.github.tonydeng.tcp4j.service.Ping;
+import com.github.tonydeng.tcp4j.service.PingPongService;
+import com.github.tonydeng.tcp4j.service.Pong;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.thrift.TException;
 import org.slf4j.Logger;

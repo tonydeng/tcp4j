@@ -1,9 +1,8 @@
-package com.github.tonydeng.tcp.pool;
+package com.github.tonydeng.tcp4j.pool;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.MapMaker;
 
-import javax.swing.plaf.TableHeaderUI;
 import java.util.List;
 import java.util.concurrent.ConcurrentMap;
 

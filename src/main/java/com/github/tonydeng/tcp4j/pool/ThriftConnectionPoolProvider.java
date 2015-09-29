@@ -1,4 +1,4 @@
-package com.github.tonydeng.tcp.pool;
+package com.github.tonydeng.tcp4j.pool;
 
 import org.apache.thrift.transport.TTransport;
 

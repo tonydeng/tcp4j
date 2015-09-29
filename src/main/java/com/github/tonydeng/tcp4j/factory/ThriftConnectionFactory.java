@@ -1,6 +1,6 @@
-package com.github.tonydeng.tcp.factory;
+package com.github.tonydeng.tcp4j.factory;
 
-import com.github.tonydeng.tcp.pool.ThriftServerInfo;
+import com.github.tonydeng.tcp4j.pool.ThriftServerInfo;
 import org.apache.commons.pool2.KeyedPooledObjectFactory;
 import org.apache.commons.pool2.PooledObject;
 import org.apache.commons.pool2.impl.DefaultPooledObject;

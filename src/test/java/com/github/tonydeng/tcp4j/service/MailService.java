@@ -4,7 +4,7 @@
  * DO NOT EDIT UNLESS YOU ARE SURE THAT YOU KNOW WHAT YOU ARE DOING
  *  @generated
  */
-package com.github.tonydeng.tcp.service;
+package com.github.tonydeng.tcp4j.service;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.async.AsyncMethodCallback;

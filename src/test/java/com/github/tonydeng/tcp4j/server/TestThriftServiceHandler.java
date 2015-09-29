@@ -1,6 +1,6 @@
-package com.github.tonydeng.tcp.server;
+package com.github.tonydeng.tcp4j.server;
 
-import com.github.tonydeng.tcp.service.TestThriftService;
+import com.github.tonydeng.tcp4j.service.TestThriftService;
 import org.apache.thrift.TException;
 import org.springframework.stereotype.Service;
 

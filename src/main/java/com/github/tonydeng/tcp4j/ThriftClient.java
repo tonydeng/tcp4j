@@ -1,4 +1,4 @@
-package com.github.tonydeng.tcp;
+package com.github.tonydeng.tcp4j;
 
 import org.apache.thrift.TServiceClient;
 import org.apache.thrift.protocol.TProtocol;
