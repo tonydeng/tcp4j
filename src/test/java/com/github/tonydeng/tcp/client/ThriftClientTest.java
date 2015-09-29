@@ -4,6 +4,7 @@ import com.github.tonydeng.tcp.ThriftClient;
 import com.github.tonydeng.tcp.impl.ThriftClientImpl;
 import com.github.tonydeng.tcp.pool.ThriftServerInfo;
 import com.github.tonydeng.tcp.service.*;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TCompactProtocol;
@@ -28,6 +29,7 @@ import java.util.function.Supplier;
 /**
  * Created by tonydeng on 15/9/28.
  */
+@Ignore
 public class ThriftClientTest {
     private static final Logger log = LoggerFactory.getLogger(ThriftClientTest.class);
 

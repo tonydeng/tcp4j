@@ -12,6 +12,7 @@ import org.apache.thrift.transport.TFramedTransport;
 import org.apache.thrift.transport.TServerSocket;
 import org.apache.thrift.transport.TServerTransport;
 import org.apache.thrift.transport.TTransportException;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +24,7 @@ import javax.annotation.Resource;
 /**
  * Created by tonydeng on 15/9/28.
  */
+@Ignore
 @Configuration
 @ComponentScan(basePackages = "com.github.tonydeng.tcp.server")
 public class ThriftTestServer {
