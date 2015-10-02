@@ -4,6 +4,7 @@ import com.github.tonydeng.tcp4j.ThriftClient;
 import com.github.tonydeng.tcp4j.impl.ThriftClientImpl;
 import com.github.tonydeng.tcp4j.pool.ThriftServerInfo;
 import com.github.tonydeng.tcp4j.service.*;
+import com.google.common.collect.Lists;
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.protocol.TCompactProtocol;
@@ -11,6 +12,7 @@ import org.apache.thrift.protocol.TMultiplexedProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -32,9 +34,51 @@ import java.util.function.Supplier;
 public class ThriftClientTest {
     private static final Logger log = LoggerFactory.getLogger(ThriftClientTest.class);
 
-    private static final Supplier<List<ThriftServerInfo>> serverList = () -> Arrays.asList(
-            ThriftServerInfo.of("localhost", 9001)
-    );
+//    private static final Supplier<List<ThriftServerInfo>> serverList = () -> Arrays.asList(
+//            ThriftServerInfo.of("localhost", 9001)
+//    );
+
+    private static Supplier<List<ThriftServerInfo>> serverList;
+
+    private static ThriftClient client ;
+
+    @Before
+    public void setup(){
+        List<ThriftServerInfo> serverInfos = Lists.newArrayList(
+                ThriftServerInfo.of("127.0.0.1", 9001)
+        );
+//        serverList = () -> serverInfos;
+
+        client = new ThriftClientImpl((() -> serverInfos));
+    }
+
+    @Test
+    public void testEcho() throws InterruptedException {
+//        Supplier<List<ThriftServerInfo>> serverListProvider = () -> Arrays.asList( //
+////                ThriftServerInfo.of("127.0.0.1", 9092), //
+////                ThriftServerInfo.of("127.0.0.1", 9091), //
+//                ThriftServerInfo.of("127.0.0.1", 9001));
+//
+//        // init pool client
+//        ThriftClientImpl client = new ThriftClientImpl(serverListProvider);
+
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+        for (int i = 0; i < 100; i++) {
+            int counter = i;
+            executorService.submit(() -> {
+                try {
+                    String result = client.iface(TestThriftService.Client.class).echo("hi " + counter + "!");
+                    log.info("get result: {}", result);
+                } catch (Throwable e) {
+                    log.error("get client fail", e);
+                }
+            });
+        }
+
+        executorService.shutdown();
+        executorService.awaitTermination(1, TimeUnit.MINUTES);
+    }
 
     //    @Test
     public void testTransport() throws TException {
@@ -122,31 +166,6 @@ public class ThriftClientTest {
 
         transport.close();
     }
-    @Test
-    public void testEcho() throws InterruptedException {
-        Supplier<List<ThriftServerInfo>> serverListProvider = () -> Arrays.asList( //
-//                ThriftServerInfo.of("127.0.0.1", 9092), //
-//                ThriftServerInfo.of("127.0.0.1", 9091), //
-                ThriftServerInfo.of("127.0.0.1", 9001));
 
-        // init pool client
-        ThriftClientImpl client = new ThriftClientImpl(serverListProvider);
 
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-
-        for (int i = 0; i < 100; i++) {
-            int counter = i;
-            executorService.submit(() -> {
-                try {
-                    String result = client.iface(TestThriftService.Client.class).echo("hi " + counter + "!");
-                    log.info("get result: {}", result);
-                } catch (Throwable e) {
-                    log.error("get client fail", e);
-                }
-            });
-        }
-
-        executorService.shutdown();
-        executorService.awaitTermination(1, TimeUnit.MINUTES);
-    }
 }
