@@ -31,6 +31,15 @@ public class ThriftClientImpl implements ThriftClient {
     private final Supplier<List<ThriftServerInfo>> serverInfoProvider;
 
     /**
+     * 构造ThriftClient实现
+     *
+     * @param serverInfoProvider
+     */
+    public ThriftClientImpl(List<ThriftServerInfo> serverInfoProvider) {
+        this((() -> serverInfoProvider));
+    }
+
+    /**
      * 构造ThriftClient实现.
      *
      * @param serverInfoProvider provide service list
@@ -104,8 +113,8 @@ public class ThriftClientImpl implements ThriftClient {
 
 
         try {
-            X x = (X) factory.create(new Class[] { TProtocol.class },
-                    new Object[] { protocol });
+            X x = (X) factory.create(new Class[]{TProtocol.class},
+                    new Object[]{protocol});
             ((Proxy) x).setHandler((self, thisMethod, proceed, args) -> {
                 boolean success = false;
                 try {
