@@ -13,7 +13,6 @@ TCP原意是传输控制协议（Transfer Control Protocol），在本项目中�
 ### 默认ThriftClientImpl的使用方法
 
 ```java
-
 //ThriftClient初始化
 ThriftClient client = new ThriftClientImpl(() -> Arrays.asList(
     ThriftServerInfo.of("127.0.0.1",9001),
