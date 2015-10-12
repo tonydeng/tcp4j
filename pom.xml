@@ -168,12 +168,12 @@
         </repository>
         <repository>
             <id>cim-maven-snapshots-repo</id>
-            <url>http://mvn.cim.in</url>
+            <url>http://mvn.cim.in/snapshots</url>
             <releases>
-                <enabled>true</enabled>
+                <enabled>false</enabled>
             </releases>
             <snapshots>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
             </snapshots>
         </repository>
         <repository>
