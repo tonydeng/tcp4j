@@ -24,7 +24,7 @@ import javax.annotation.Resource;
 /**
  * Created by tonydeng on 15/9/28.
  */
-@Ignore
+//@Ignore
 @Configuration
 @ComponentScan(basePackages = "com.github.tonydeng.tcp4j.server")
 public class ThriftTestServer {
