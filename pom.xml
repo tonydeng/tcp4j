@@ -24,7 +24,7 @@
         <commons-pool2.version>2.3</commons-pool2.version>
         <libthrift.version>0.9.3</libthrift.version>
         <guava.version>18.0</guava.version>
-        <javasist.version>3.19.0-GA</javasist.version>
+        <javasist.version>3.20.0-GA</javasist.version>
     </properties>
 
     <dependencies>
