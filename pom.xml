@@ -1,17 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.tonydeng</groupId>
     <artifactId>tcp4j</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>tcp4j</name>
     <url>http://maven.apache.org</url>
 
     <scm>
         <connection>scm:git:git@git.cimyun.com:st/tcp4j.git</connection>
         <developerConnection>scm:git:git@git.cimyun.com:st/tcp4j.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>tcp4j-1.0</tag>
     </scm>
 
 
