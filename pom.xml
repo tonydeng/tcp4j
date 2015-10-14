@@ -3,14 +3,14 @@
     <groupId>com.github.tonydeng</groupId>
     <artifactId>tcp4j</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <name>tcp4j</name>
     <url>http://maven.apache.org</url>
 
     <scm>
         <connection>scm:git:git@git.cimyun.com:st/tcp4j.git</connection>
         <developerConnection>scm:git:git@git.cimyun.com:st/tcp4j.git</developerConnection>
-        <tag>tcp4j-1.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
 
