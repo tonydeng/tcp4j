@@ -98,7 +98,11 @@
                     <encoding>utf-8</encoding>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.3</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -156,9 +160,9 @@
 
     <repositories>
         <repository>
-            <id>cim-maven-repo</id>
+            <id>cim-jfrog-repo</id>
             <layout>default</layout>
-            <url>http://mvn.cim.in</url>
+            <url>http://repo.cim.in/artifactory/libs-release/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
@@ -167,8 +171,9 @@
             </snapshots>
         </repository>
         <repository>
-            <id>cim-maven-snapshots-repo</id>
-            <url>http://mvn.cim.in/snapshots</url>
+            <id>cim-jfrog-snapshots-repo</id>
+            <layout>default</layout>
+            <url>http://repo.cim.in/artifactory/libs-snapshot/</url>
             <releases>
                 <enabled>false</enabled>
             </releases>
@@ -194,12 +199,12 @@
 
     <distributionManagement>
         <repository>
-            <id>cim-maven-repo</id>
-            <url>sftp://mvn.cim.in/home/release/m2_repo</url>
+            <id>cim-jfrog-repo</id>
+            <url>http://repo.cim.in/artifactory/ext-release-local/</url>
         </repository>
         <snapshotRepository>
-            <id>cim-maven-snapshots-repo</id>
-            <url>sftp://mvn.cim.in/home/release/m2_repo/snapshots</url>
+            <id>cim-jfrog-snapshots-repo</id>
+            <url>http://repo.cim.in/artifactory/ext-snapshot-local/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>
