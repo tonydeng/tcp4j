@@ -44,13 +44,13 @@ public class DefaultThriftConnectionPoolImpl implements ThriftConnectionPoolProv
      */
     public DefaultThriftConnectionPoolImpl(GenericKeyedObjectPoolConfig config) {
         this(config, info -> {
-            TSocket tSocket = new TSocket(info.getHost(), info.getPort());
-            tSocket.setTimeout(TIMEOUT);
-            TFramedTransport transport = new TFramedTransport(tSocket);
-            return transport;
-//            TSocket socket = new TSocket(info.getHost(),info.getPort());
-//            socket.setTimeout(TIMEOUT);
-//            return socket;
+//            TSocket tSocket = new TSocket(info.getHost(), info.getPort());
+//            tSocket.setTimeout(TIMEOUT);
+//            TFramedTransport transport = new TFramedTransport(tSocket);
+//            return transport;
+            TSocket socket = new TSocket(info.getHost(),info.getPort());
+            socket.setTimeout(TIMEOUT);
+            return socket;
         });
     }
 
