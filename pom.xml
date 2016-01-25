@@ -8,8 +8,8 @@
     <url>http://maven.apache.org</url>
 
     <scm>
-        <connection>scm:git:git@git.cimyun.com:st/tcp4j.git</connection>
-        <developerConnection>scm:git:git@git.cimyun.com:st/tcp4j.git</developerConnection>
+        <connection>scm:git:git@git.cimyun.com:commons/tcp4j.git</connection>
+        <developerConnection>scm:git:git@git.cimyun.com:commons/tcp4j.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
