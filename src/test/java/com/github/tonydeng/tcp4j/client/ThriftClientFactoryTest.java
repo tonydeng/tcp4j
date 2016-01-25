@@ -7,16 +7,21 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.Resource;
 import java.util.Properties;
 
 /**
  * Created by tonydeng on 16/1/23.
  */
-public class ThriftClientFactoryTest {
+public class ThriftClientFactoryTest extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(ThriftClientFactoryTest.class);
 
     private static Properties config;
     private static ThriftClientFactory factory;
+
+    @Resource
+    private Properties thriftConfig;
+
     @Before
     public void init(){
         config = new Properties();
@@ -26,12 +31,19 @@ public class ThriftClientFactoryTest {
 
         log.info("thrift config :'{}'", config);
 
+
+    }
+
+//    @Test
+    public void testGetClient(){
         factory = new ThriftClientFactory(config);
+        ThriftClient client = factory.getDefaultThriftClient();
+        log.info("client info:'{}'",client);
     }
 
     @Test
-    public void testGetClient(){
-        ThriftClient client = factory.getDefaultThriftClient();
-        log.info("client info:'{}'",client);
+    public void testSpringGetClient(){
+        factory = new ThriftClientFactory(thriftConfig);
+
     }
 }
