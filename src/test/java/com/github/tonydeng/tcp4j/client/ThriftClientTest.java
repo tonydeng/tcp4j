@@ -14,6 +14,7 @@ import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +29,7 @@ import java.util.function.Supplier;
 /**
  * Created by tonydeng on 15/9/28.
  */
-//@Ignore
+@Ignore
 public class ThriftClientTest {
     private static final Logger log = LoggerFactory.getLogger(ThriftClientTest.class);
 

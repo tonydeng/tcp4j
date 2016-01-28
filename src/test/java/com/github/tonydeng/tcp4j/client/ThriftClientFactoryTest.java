@@ -3,6 +3,7 @@ package com.github.tonydeng.tcp4j.client;
 import com.github.tonydeng.tcp4j.ThriftClient;
 import com.github.tonydeng.tcp4j.ThriftClientFactory;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import java.util.Properties;
 /**
  * Created by tonydeng on 16/1/23.
  */
+@Ignore
 public class ThriftClientFactoryTest extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(ThriftClientFactoryTest.class);
 
