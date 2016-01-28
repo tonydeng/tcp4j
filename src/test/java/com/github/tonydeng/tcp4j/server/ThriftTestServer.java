@@ -1,7 +1,6 @@
 package com.github.tonydeng.tcp4j.server;
 
 import com.github.tonydeng.tcp4j.service.PingPongService;
-import com.github.tonydeng.tcp4j.service.TestThriftService;
 import org.apache.thrift.TException;
 import org.apache.thrift.TMultiplexedProcessor;
 import org.apache.thrift.protocol.TCompactProtocol;
@@ -24,7 +23,7 @@ import javax.annotation.Resource;
 /**
  * Created by tonydeng on 15/9/28.
  */
-//@Ignore
+@Ignore
 @Configuration
 @ComponentScan(basePackages = "com.github.tonydeng.tcp4j.server")
 public class ThriftTestServer {
@@ -33,8 +32,6 @@ public class ThriftTestServer {
     @Resource
     private PingPongService.Iface pingPongService;
 
-    @Resource
-    private TestThriftService.Iface testThriftService;
 
     @Test
     public void echoStart(){
@@ -42,14 +39,14 @@ public class ThriftTestServer {
             TServerTransport serverTransport = new TServerSocket(port);
 
             TThreadPoolServer.Args processor = new TThreadPoolServer.Args(serverTransport)
-                    .inputTransportFactory(new TFramedTransport.Factory())
-                    .outputTransportFactory(new TFramedTransport.Factory())
+//                    .inputTransportFactory(new TFramedTransport.Factory())
+//                    .outputTransportFactory(new TFramedTransport.Factory())
                     .protocolFactory(new TCompactProtocol.Factory())
-                    .processor(new TestThriftService.Processor<>(new TestThriftServiceHandler()));
+                    .processor(new PingPongService.Processor<>(new PingPongServiceHandler()));
             //            processor.maxWorkerThreads = 20;
             TThreadPoolServer server = new TThreadPoolServer(processor);
 
-            System.out.println("Starting the server...");
+            log.info("Starting the echo server...");
             server.serve();
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,11 +1,10 @@
 package com.github.tonydeng.tcp4j.pool.impl;
 
-import com.github.tonydeng.tcp4j.factory.ThriftConnectionFactory;
+import com.github.tonydeng.tcp4j.pool.factory.ThriftConnectionFactory;
 import com.github.tonydeng.tcp4j.pool.ThriftConnectionPoolProvider;
 import com.github.tonydeng.tcp4j.pool.ThriftServerInfo;
 import org.apache.commons.pool2.impl.GenericKeyedObjectPool;
 import org.apache.commons.pool2.impl.GenericKeyedObjectPoolConfig;
-import org.apache.thrift.transport.TFramedTransport;
 import org.apache.thrift.transport.TSocket;
 import org.apache.thrift.transport.TTransport;
 import org.slf4j.Logger;
@@ -44,13 +43,13 @@ public class DefaultThriftConnectionPoolImpl implements ThriftConnectionPoolProv
      */
     public DefaultThriftConnectionPoolImpl(GenericKeyedObjectPoolConfig config) {
         this(config, info -> {
-            TSocket tSocket = new TSocket(info.getHost(), info.getPort());
-            tSocket.setTimeout(TIMEOUT);
-            TFramedTransport transport = new TFramedTransport(tSocket);
-            return transport;
-//            TSocket socket = new TSocket(info.getHost(),info.getPort());
-//            socket.setTimeout(TIMEOUT);
-//            return socket;
+//            TSocket tSocket = new TSocket(info.getHost(), info.getPort());
+//            tSocket.setTimeout(TIMEOUT);
+//            TFramedTransport transport = new TFramedTransport(tSocket);
+//            return transport;
+            TSocket socket = new TSocket(info.getHost(),info.getPort());
+            socket.setTimeout(TIMEOUT);
+            return socket;
         });
     }
 
