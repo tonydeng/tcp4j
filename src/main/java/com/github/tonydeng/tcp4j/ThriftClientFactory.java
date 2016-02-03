@@ -15,9 +15,9 @@ import java.util.Properties;
 public class ThriftClientFactory {
     private static final Logger log = LoggerFactory.getLogger(ThriftClientFactory.class);
 
-    private static ThriftClient defaultClient;
+    private ThriftClient defaultClient;
 
-    private static List<ThriftServerInfo> thriftServerInfos;
+    private List<ThriftServerInfo> thriftServerInfos;
 
     public ThriftClientFactory(Properties thriftClientConfig) {
 
